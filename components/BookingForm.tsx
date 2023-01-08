@@ -1,24 +1,23 @@
+import axios from "axios";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Customer from "../types/Customer";
 import { Input } from "./Input";
-
-type FormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  dogsName: string;
-  dogsBreed: string;
-  dogsAge: string;
-  message: string;
-};
 
 export function BookingForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
-  const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
+  } = useForm<Customer>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit: SubmitHandler<Customer> = (data) => {
+    if (isSubmitting) return Promise.resolve();
+    setIsSubmitting(true);
+
+    return axios.post("/api/book", data).then(() => setIsSubmitting(false));
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -44,13 +43,13 @@ export function BookingForm() {
           }}
         />
         <Input
-          inputProps={{ placeholder: "Dogs name", ...register("dogsName") }}
+          inputProps={{ placeholder: "Dog's name", ...register("dogsName") }}
         />
         <Input
-          inputProps={{ placeholder: "Dogs breed", ...register("dogsBreed") }}
+          inputProps={{ placeholder: "Dog's breed", ...register("dogsBreed") }}
         />
         <Input
-          inputProps={{ placeholder: "Dogs age", ...register("dogsAge") }}
+          inputProps={{ placeholder: "Dog's age", ...register("dogsAge") }}
         />
         <Input
           inputProps={{
@@ -60,7 +59,7 @@ export function BookingForm() {
           }}
         />
         {errors.email && <span>This field is required</span>}
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   );
