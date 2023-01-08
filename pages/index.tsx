@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Input } from "../components/Input";
+import { BookingForm } from "../components/BookingForm";
 
 export default function Home() {
   return (
@@ -19,18 +19,7 @@ export default function Home() {
             <h1>Book a shoot for your dog with Sabrina Satti</h1>
           </div>
         </div>
-        <form>
-          <div className="flex flex-col items-center">
-            <Input placeholder="First and last name" />
-            <Input placeholder="your@email.com" />
-            <Input placeholder="Phone number" />
-            <Input placeholder="Dogs name" />
-            <Input placeholder="Dogs breed" />
-            <Input placeholder="Dogs age" />
-            <Input type="text" placeholder="Message" />
-            <button className="test">Submit</button>
-          </div>
-        </form>
+        <BookingForm />
       </main>
     </>
   );
