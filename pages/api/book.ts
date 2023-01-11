@@ -12,7 +12,6 @@ export default function handler(
   res: NextApiResponse<void>
 ) {
   const customer: Customer = req.body;
-  console.log(customer);
   return addCustomerToNotion(customer)
     .then(() =>
       Promise.all([
@@ -30,7 +29,6 @@ export default function handler(
           : Promise.resolve(),
       ])
     )
-    .then(() => console.log("emails sent"))
     .then(() => res.status(200).send())
     .catch(() => res.status(500).send());
 }
