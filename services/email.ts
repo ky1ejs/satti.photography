@@ -3,10 +3,14 @@ import axios from "axios";
 const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY;
 const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
 
-export function sendEmail(recipient: string, subject: string, message: string) {
+export function sendEmail(
+  recipient: string,
+  subject: string,
+  message: string
+): Promise<void> {
   if (!MAILGUN_API_KEY) throw Error("Mailgun API key is null");
 
-  axios
+  return axios
     .post(
       `https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`,
       new URLSearchParams({
