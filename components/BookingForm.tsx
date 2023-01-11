@@ -21,7 +21,7 @@ export function BookingForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mx-auto flex w-96 flex-col items-center">
+      <div className="mx-auto flex max-w-xs flex-col items-center">
         <div className="flex w-full justify-evenly gap-4">
           <Input
             inputProps={{
