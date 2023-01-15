@@ -1,8 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Customer from "../types/Customer";
 import { Input } from "./Input";
+
+const SectionHeading = (props: { children: React.ReactNode }) => (
+  <h2 className="w-full">{props.children}</h2>
+);
 
 export function BookingForm() {
   const {
@@ -22,6 +26,7 @@ export function BookingForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mx-auto flex max-w-xs flex-col items-center">
+        <SectionHeading>You</SectionHeading>
         <div className="flex w-full justify-evenly gap-4">
           <Input
             inputProps={{
@@ -42,6 +47,7 @@ export function BookingForm() {
             ...register("phoneNumber"),
           }}
         />
+        <SectionHeading>Your doggo</SectionHeading>
         <Input
           inputProps={{ placeholder: "Dog's name", ...register("dogsName") }}
         />
@@ -51,15 +57,26 @@ export function BookingForm() {
         <Input
           inputProps={{ placeholder: "Dog's age", ...register("dogsAge") }}
         />
+        <SectionHeading>The shoot</SectionHeading>
+        <Input
+          inputProps={{ placeholder: "Ideal date", ...register("location") }}
+        />
         <Input
           inputProps={{
-            type: "text",
-            placeholder: "Message",
-            ...register("message"),
+            placeholder: "Location (ideas)",
+            ...register("shootDate"),
           }}
         />
+        <SectionHeading>Anything else...</SectionHeading>
+        <textarea
+          className="input message"
+          placeholder="message"
+          {...register("message")}
+        />
         {errors.email && <span>This field is required</span>}
-        <button type="submit">Submit</button>
+        <button className="mt-8 w-full rounded bg-primary py-2" type="submit">
+          Submit
+        </button>
       </div>
     </form>
   );

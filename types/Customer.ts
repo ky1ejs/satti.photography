@@ -6,6 +6,8 @@ type Customer = {
   dogsName: string;
   dogsBreed: string;
   dogsAge: string;
+  location: string;
+  shootDate: string;
   message: string;
 };
 
