@@ -39,12 +39,12 @@ export default function Home() {
         <div className="flex items-start justify-center gap-8">
           <div className="image-container">
             <Image
-              className="sabs-image"
+              className="sabs-image fade-in"
               src={sabsImage}
               alt="Sabrina Satti in Santa Cruz"
             />
             <Image
-              className="parker-image"
+              className="parker-image fade-in"
               src={parkerImage}
               alt="Sabrina Satti in Santa Cruz"
             />
