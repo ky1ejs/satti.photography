@@ -42,11 +42,17 @@
   }
 
   .input {
-    @apply mb-4 w-full rounded p-2 text-gray-dark
+    @apply mb-4 w-full rounded p-2 text-gray-dark;
   }
 
   .message {
     min-height: 120px;
+  }
+
+  .auto-complete-table {
+    @apply absolute bg-gray-600 shadow-lg w-full top-10;
+    max-height: 400px;
+    overflow: hidden;
   }
 }
 

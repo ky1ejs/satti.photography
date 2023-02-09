@@ -12,10 +12,12 @@
     "@next/font": "13.1.1",
     "@notionhq/client": "^2.2.3",
     "axios": "^1.2.2",
+    "fuzzysort": "^2.0.4",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.41.5"
+    "react-hook-form": "^7.41.5",
+    "swr": "^2.0.3"
   },
   "devDependencies": {
     "@types/node": "18.11.18",

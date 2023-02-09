@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Customer from "../types/Customer";
+import { DogBreedField } from "./BreedField";
 import { Input } from "./Input";
 
 const SectionHeading = (props: { children: React.ReactNode }) => (
@@ -51,9 +52,7 @@ export function BookingForm() {
         <Input
           inputProps={{ placeholder: "Dog's name", ...register("dogsName") }}
         />
-        <Input
-          inputProps={{ placeholder: "Dog's breed", ...register("dogsBreed") }}
-        />
+        <DogBreedField />
         <Input
           inputProps={{ placeholder: "Dog's age", ...register("dogsAge") }}
         />
