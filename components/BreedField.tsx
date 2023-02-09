@@ -91,6 +91,11 @@ const AutocompleteTable = ({
   currentSelection: number;
   onSelect: (selection: string) => void;
 }) => {
+  const [isDrag, setIsDrag] = useState(false);
+  const onTouchEnd = (selection: string) => {
+    if (!isDrag) onSelect(selection);
+    setIsDrag(false);
+  };
   return (
     <div className="auto-complete-table">
       {data.map((e, index) => {
@@ -104,7 +109,8 @@ const AutocompleteTable = ({
             /* eslint-enable */
             key={e}
             onClick={() => onSelect(e)}
-            onTouchEnd={() => onSelect(e)}
+            onTouchEnd={() => onTouchEnd(e)}
+            onTouchMove={() => setIsDrag(true)}
           >
             {e}
           </div>
