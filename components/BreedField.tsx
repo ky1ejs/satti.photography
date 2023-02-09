@@ -74,6 +74,7 @@ export const DogBreedField = () => {
         foundBreeds.length > 0 && (
           <AutocompleteTable
             data={foundBreeds}
+            term={term}
             onSelect={onSelect}
             currentSelection={selectionIndex}
           />
@@ -85,10 +86,45 @@ export const DogBreedField = () => {
 const AutocompleteTable = ({
   data,
   currentSelection,
+  term,
   onSelect,
 }: {
   data: string[];
   currentSelection: number;
+  term: string;
+  onSelect: (selection: string) => void;
+}) => {
+  return (
+    <div className="auto-complete-table">
+      <AutocompleteTableRow
+        key={term + " user-input"}
+        text={term}
+        isCurrentSelection={false}
+        onSelect={onSelect}
+      />
+      {data.map((e, index) => {
+        const isCurrentSelection = index === currentSelection;
+        if (e.toLowerCase() === term.toLowerCase()) return null;
+        return (
+          <AutocompleteTableRow
+            key={e}
+            text={e}
+            isCurrentSelection={isCurrentSelection}
+            onSelect={onSelect}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+const AutocompleteTableRow = ({
+  text,
+  isCurrentSelection,
+  onSelect,
+}: {
+  text: string;
+  isCurrentSelection: boolean;
   onSelect: (selection: string) => void;
 }) => {
   const [isDrag, setIsDrag] = useState(false);
@@ -97,25 +133,17 @@ const AutocompleteTable = ({
     setIsDrag(false);
   };
   return (
-    <div className="auto-complete-table">
-      {data.map((e, index) => {
-        const isCurrentSelection = index === currentSelection;
-        return (
-          <div
-            /* eslint-disable */
-            className={`my-2 px-2 hover:bg-slate-400 
+    <div
+      /* eslint-disable */
+      className={`my-2 px-2 hover:bg-slate-400 
               ${isCurrentSelection ? "bg-red-600" : ""}
             `}
-            /* eslint-enable */
-            key={e}
-            onClick={() => onSelect(e)}
-            onTouchEnd={() => onTouchEnd(e)}
-            onTouchMove={() => setIsDrag(true)}
-          >
-            {e}
-          </div>
-        );
-      })}
+      /* eslint-enable */
+      onClick={() => onSelect(text)}
+      onTouchEnd={() => onTouchEnd(text)}
+      onTouchMove={() => setIsDrag(true)}
+    >
+      {text}
     </div>
   );
 };
