@@ -104,6 +104,7 @@ const AutocompleteTable = ({
             /* eslint-enable */
             key={e}
             onClick={() => onSelect(e)}
+            onTouchEnd={() => onSelect(e)}
           >
             {e}
           </div>
