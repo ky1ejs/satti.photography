@@ -18,6 +18,7 @@ export const DogBreedField = () => {
   }, [data]);
 
   const foundBreeds = fuzzysort.go(term, dogBreeds).map((r) => r.target);
+  foundBreeds.splice(0, 0, term);
 
   const onSelect = (seletion: string) => {
     setTerm(seletion);
@@ -34,6 +35,7 @@ export const DogBreedField = () => {
     setSelectionMade(false);
     switch (e.key) {
       case "ArrowDown":
+        e.preventDefault();
         if (selectionIndex < 0) setSelectionIndex(0);
         else
           setSelectionIndex(
@@ -41,6 +43,7 @@ export const DogBreedField = () => {
           );
         break;
       case "ArrowUp":
+        e.preventDefault();
         setSelectionIndex(Math.max(0, selectionIndex - 1));
         break;
       case "Escape":
@@ -74,7 +77,6 @@ export const DogBreedField = () => {
         foundBreeds.length > 0 && (
           <AutocompleteTable
             data={foundBreeds}
-            term={term}
             onSelect={onSelect}
             currentSelection={selectionIndex}
           />
@@ -86,25 +88,16 @@ export const DogBreedField = () => {
 const AutocompleteTable = ({
   data,
   currentSelection,
-  term,
   onSelect,
 }: {
   data: string[];
   currentSelection: number;
-  term: string;
   onSelect: (selection: string) => void;
 }) => {
   return (
     <div className="auto-complete-table">
-      <AutocompleteTableRow
-        key={term + " user-input"}
-        text={term}
-        isCurrentSelection={false}
-        onSelect={onSelect}
-      />
       {data.map((e, index) => {
         const isCurrentSelection = index === currentSelection;
-        if (e.toLowerCase() === term.toLowerCase()) return null;
         return (
           <AutocompleteTableRow
             key={e}
@@ -135,9 +128,9 @@ const AutocompleteTableRow = ({
   return (
     <div
       /* eslint-disable */
-      className={`my-2 px-2 hover:bg-slate-400 
-              ${isCurrentSelection ? "bg-red-600" : ""}
-            `}
+      className={`py-2 px-2 hover:bg-slate-400 
+        ${isCurrentSelection ? "bg-red-600" : ""}
+      `}
       /* eslint-enable */
       onClick={() => onSelect(text)}
       onTouchEnd={() => onTouchEnd(text)}
