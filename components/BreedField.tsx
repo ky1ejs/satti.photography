@@ -100,7 +100,7 @@ const AutocompleteTable = ({
         const isCurrentSelection = index === currentSelection;
         return (
           <AutocompleteTableRow
-            key={e}
+            key={`${e}-${index}`}
             text={e}
             isCurrentSelection={isCurrentSelection}
             onSelect={onSelect}
