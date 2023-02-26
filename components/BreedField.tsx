@@ -21,6 +21,7 @@ export const DogBreedField = () => {
   foundBreeds.splice(0, 0, term);
 
   const onSelect = (seletion: string) => {
+    console.log("click");
     setTerm(seletion);
     setSelectionMade(true);
     setSelectionIndex(-1);
@@ -128,11 +129,11 @@ const AutocompleteTableRow = ({
   return (
     <div
       /* eslint-disable */
-      className={`py-2 px-2 hover:bg-slate-400 
+      className={`py-2 px-2 hover:bg-slate-400 cursor-pointer
         ${isCurrentSelection ? "bg-red-600" : ""}
       `}
       /* eslint-enable */
-      onClick={() => onSelect(text)}
+      onMouseDown={() => onSelect(text)}
       onTouchEnd={() => onTouchEnd(text)}
       onTouchMove={() => setIsDrag(true)}
     >
