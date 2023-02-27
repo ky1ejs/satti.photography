@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { BookingForm } from "../components/BookingForm";
-import sabsImage from "../public/sabs.jpg";
 import parkerImage from "../public/parker.jpg";
 import Image from "next/image";
 
@@ -38,11 +37,6 @@ export default function Home() {
         </div>
         <div className="flex items-start justify-center gap-8">
           <div className="image-container">
-            <Image
-              className="sabs-image fade-in"
-              src={sabsImage}
-              alt="Sabrina Satti in Santa Cruz"
-            />
             <Image
               className="parker-image fade-in"
               src={parkerImage}
