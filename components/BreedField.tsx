@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, KeyboardEvent } from "react";
 import useSWR from "swr";
 import fuzzysort from "fuzzysort";
+import { Input } from "./Input";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -62,16 +63,18 @@ export const DogBreedField = () => {
 
   return (
     <div className="relative w-full">
-      <input
-        ref={inputRef}
-        placeholder="enter your dogs breed"
-        value={term}
-        onKeyDown={handleKeyDown}
-        className="input h-10"
-        onFocus={onFocus}
-        onBlur={() => setHasFocus(false)}
-        onChange={(event) => setTerm(event.target.value)}
-      ></input>
+      <Input
+        label="Breed"
+        inputRef={inputRef}
+        inputProps={{
+          placeholder: "enter your dogs breed",
+          value: term,
+          onKeyDown: handleKeyDown,
+          onFocus: onFocus,
+          onBlur: () => setHasFocus(false),
+          onChange: (event) => setTerm(event.target.value),
+        }}
+      />
       {hasFocus &&
         !selectionMade &&
         term.length > 0 &&

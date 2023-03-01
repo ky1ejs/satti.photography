@@ -20,8 +20,7 @@ export default function Book() {
           <div className="scroll-area w-1/2 overflow-scroll">
             <div>
               <div className="flex items-start justify-center gap-8">
-                <div className="fade-in flex-initial">
-                  <BookingForm />
+                <div className="fade-in flex-auto">
                   <BookingForm />
                 </div>
               </div>

@@ -1,5 +1,17 @@
-import React from "react";
+import React, { RefObject } from "react";
 
-export const Input = (props: {
-  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
-}) => <input className="input h-10" {...props.inputProps} />;
+interface InputProps {
+  label: string;
+  inputRef?: RefObject<HTMLInputElement>;
+}
+
+export const Input = (
+  props: {
+    inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+  } & InputProps
+) => (
+  <>
+    <div className="mb-1 w-full text-xs text-stone-500">{props.label}</div>
+    <input ref={props.inputRef} className="input" {...props.inputProps} />
+  </>
+);

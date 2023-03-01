@@ -6,7 +6,7 @@ import { DogBreedField } from "./BreedField";
 import { Input } from "./Input";
 
 const SectionHeading = (props: { children: React.ReactNode }) => (
-  <h2 className="w-full">{props.children}</h2>
+  <h2 className="mb-2 w-full">{props.children}</h2>
 );
 
 export function BookingForm() {
@@ -26,23 +26,25 @@ export function BookingForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mx-auto flex max-w-xs flex-col items-center">
+      <div className="mx-auto flex w-[80%] max-w-[350px] flex-col items-center">
         <SectionHeading>You</SectionHeading>
-        <div className="flex w-full justify-evenly gap-4">
-          <Input
-            inputProps={{
-              placeholder: "First name",
-              ...register("firstName"),
-            }}
-          />
-          <Input
-            inputProps={{ placeholder: "Last name", ...register("lastName") }}
-          />
-        </div>
         <Input
+          label="First name"
+          inputProps={{
+            placeholder: "Dog",
+            ...register("firstName"),
+          }}
+        />
+        <Input
+          label="Last name"
+          inputProps={{ placeholder: "Lover", ...register("lastName") }}
+        />
+        <Input
+          label="Email address"
           inputProps={{ placeholder: "your@email.com", ...register("email") }}
         />
         <Input
+          label="Phone number"
           inputProps={{
             placeholder: "Phone number",
             ...register("phoneNumber"),
@@ -50,19 +52,29 @@ export function BookingForm() {
         />
         <SectionHeading>Your doggo</SectionHeading>
         <Input
-          inputProps={{ placeholder: "Dog's name", ...register("dogsName") }}
+          label="Name(s)"
+          inputProps={{ placeholder: "Roger", ...register("dogsName") }}
         />
         <DogBreedField />
         <Input
-          inputProps={{ placeholder: "Dog's age", ...register("dogsAge") }}
+          label="Age"
+          inputProps={{
+            placeholder: "2 years old",
+            ...register("dogsAge"),
+          }}
         />
         <SectionHeading>The shoot</SectionHeading>
         <Input
-          inputProps={{ placeholder: "Ideal date", ...register("location") }}
+          label="Ideal date(s)"
+          inputProps={{
+            placeholder: "Click to select",
+            ...register("location"),
+          }}
         />
         <Input
+          label="Location (ideas)"
           inputProps={{
-            placeholder: "Location (ideas)",
+            placeholder: "Central park",
             ...register("shootDate"),
           }}
         />

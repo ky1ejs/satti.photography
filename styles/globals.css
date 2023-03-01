@@ -32,7 +32,16 @@
   }
 
   .input {
-    @apply mb-4 w-full rounded p-2 text-gray-dark;
+    @apply mb-3 w-full rounded p-2 bg-transparent border-stone-500 border text-white h-10;
+  }
+  
+  .input::placeholder  {
+    @apply text-stone-500;
+  }
+
+  .input:focus  {
+    outline: none;
+    @apply border-red-600;
   }
 
   .message {
