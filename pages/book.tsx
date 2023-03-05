@@ -37,14 +37,15 @@ export default function Book() {
           className="fade-in fixed top-0 h-64 object-cover object-[0_68%] md:hidden"
           src={dashImage}
           alt="Sabrina Satti in Santa Cruz"
+          priority
         />
         <div className="relative mt-52 h-screen w-screen bg-transparent md:mt-0 md:flex">
-          <div className="scroll-area overflow-scroll bg-transparent pt-5 md:w-1/2">
-            <div className="mx-auto flex w-[80%] max-w-[350px] flex-col items-center rounded bg-black">
-              <div className="text-center">
+          <div className="scroll-area overflow-scroll bg-transparent pt-4 md:w-1/2">
+            <div className="mx-auto flex w-[90%] max-w-[350px] flex-col items-center rounded bg-black px-7">
+              <div className="mt-4 mb-8 text-center">
                 <Image
-                  width={120}
-                  className="m-auto pb-3"
+                  width={75}
+                  className="m-auto mb-8"
                   src={sabrinaLogo}
                   alt="Sabrina Satti Dog Photography logo"
                 />
@@ -55,11 +56,9 @@ export default function Book() {
                   blah blah blah blah blah blah blah blah blah
                 </p>
               </div>
-              <div>
-                <div className="flex items-start justify-center gap-8">
-                  <div className="fade-in flex-auto">
-                    <BookingForm />
-                  </div>
+              <div className="flex w-full items-start justify-center gap-8">
+                <div className="fade-in flex-auto">
+                  <BookingForm />
                 </div>
               </div>
             </div>
