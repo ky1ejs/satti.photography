@@ -11,7 +11,7 @@ export const Input = (
   } & InputProps
 ) => (
   <>
-    <div className="mb-1 w-full text-xs text-stone-500">{props.label}</div>
+    <div className="mb-1 w-full pl-2 text-xs text-stone-500">{props.label}</div>
     <input ref={props.inputRef} className="input" {...props.inputProps} />
   </>
 );
