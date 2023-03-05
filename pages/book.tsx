@@ -11,7 +11,8 @@ export default function Book() {
   const listenToScroll = () => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
-    const opacity = 1 - winScroll / 200;
+    const opacityResult = 1 - (winScroll + -30) / 120;
+    const opacity = Math.max(0, Math.min(1, opacityResult));
     setHeroOpacity(opacity);
   };
 
@@ -50,10 +51,10 @@ export default function Book() {
                   alt="Sabrina Satti Dog Photography logo"
                 />
                 <h1 className="mb-3">Make a Booking</h1>
+                <p>I typically respond to inquirieswithin 18 hours.</p>
                 <p>
-                  Blah blah blah blah blah blah blah blah blah blah blah blah
-                  blah blah blah blah blah blah blah blah blah blah blah blah
-                  blah blah blah blah blah blah blah blah blah
+                  If you&#39;d prefer to chat or ask question entail before
+                  making a booking, you contact me here.
                 </p>
               </div>
               <div className="flex w-full items-start justify-center gap-8">

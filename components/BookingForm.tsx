@@ -49,7 +49,7 @@ export function BookingForm() {
           ...register("phoneNumber"),
         }}
       />
-      <SectionHeading>Your doggo</SectionHeading>
+      <SectionHeading>Your dog</SectionHeading>
       <Input
         label="Name(s)"
         inputProps={{ placeholder: "Roger", ...register("dogsName") }}
