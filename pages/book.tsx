@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { BookingForm } from "../components/BookingForm";
-import parkerImage from "../public/parker.jpg";
+import dashImage from "../public/dash.jpg";
 import sabrinaLogo from "../public/ss-photography.png";
 import Image from "next/image";
 
@@ -44,8 +44,8 @@ export default function Book() {
             </div>
           </div>
           <Image
-            className="fade-in w-1/2 object-cover object-right-bottom"
-            src={parkerImage}
+            className="fade-in w-1/2 object-cover"
+            src={dashImage}
             alt="Sabrina Satti in Santa Cruz"
           />
         </div>
