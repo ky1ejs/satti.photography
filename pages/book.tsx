@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import { BookingForm } from "../components/BookingForm";
 import dashImage from "../public/dash.jpg";
@@ -5,6 +6,20 @@ import sabrinaLogo from "../public/ss-photography.png";
 import Image from "next/image";
 
 export default function Book() {
+  const [heroOpacity, setHeroOpacity] = useState(1);
+
+  const listenToScroll = () => {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const opacity = 1 - winScroll / 200;
+    setHeroOpacity(opacity);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, []);
+
   return (
     <>
       <Head>
@@ -17,9 +32,15 @@ export default function Book() {
         <link rel="shortcut icon" href="/favicon.jpg" />
       </Head>
       <main>
-        <div className="relative flex h-screen w-screen">
-          <div className="scroll-area mt-12 w-1/2 overflow-scroll">
-            <div className="mx-auto flex w-[80%] max-w-[350px] flex-col items-center">
+        <Image
+          style={{ opacity: heroOpacity }}
+          className="fade-in fixed top-0 h-64 object-cover object-[0_68%] md:hidden"
+          src={dashImage}
+          alt="Sabrina Satti in Santa Cruz"
+        />
+        <div className="relative mt-52 h-screen w-screen bg-transparent md:mt-0 md:flex">
+          <div className="scroll-area overflow-scroll bg-transparent pt-5 md:w-1/2">
+            <div className="mx-auto flex w-[80%] max-w-[350px] flex-col items-center rounded bg-black">
               <div className="text-center">
                 <Image
                   width={120}
@@ -44,7 +65,7 @@ export default function Book() {
             </div>
           </div>
           <Image
-            className="fade-in w-1/2 object-cover"
+            className="fade-in hidden w-1/2 object-cover md:block"
             src={dashImage}
             alt="Sabrina Satti in Santa Cruz"
           />
