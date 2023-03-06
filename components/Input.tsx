@@ -1,4 +1,5 @@
 import React, { RefObject } from "react";
+import { InputLabel } from "./InputLabel";
 
 interface InputProps {
   label: string;
@@ -11,7 +12,7 @@ export const Input = (
   } & InputProps
 ) => (
   <>
-    <div className="mb-1 w-full pl-2 text-xs text-stone-500">{props.label}</div>
+    <InputLabel text={props.label} />
     <input ref={props.inputRef} className="input" {...props.inputProps} />
   </>
 );

@@ -1,76 +1,23 @@
-import React, { useState } from "react";
-import Head from "next/head";
+import React from "react";
 import { BookingForm } from "../components/BookingForm";
-import dashImage from "../public/dash.jpg";
-import sabrinaLogo from "../public/ss-photography.png";
-import Image from "next/image";
+import { Page } from "../components/Page";
+import Link from "next/link";
 
 export default function Book() {
-  const [heroOpacity, setHeroOpacity] = useState(1);
-
-  const listenToScroll = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    const opacityResult = 1 - (winScroll + -30) / 120;
-    const opacity = Math.max(0, Math.min(1, opacityResult));
-    setHeroOpacity(opacity);
-  };
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
-  }, []);
-
   return (
-    <>
-      <Head>
-        <title>SS - Book Dog Photos</title>
-        <meta
-          name="description"
-          content="Book a photo shoot for your dog with Sabrina Satti"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/favicon.jpg" />
-      </Head>
-      <main>
-        <Image
-          style={{ opacity: heroOpacity }}
-          className="fade-in fixed top-0 h-64 object-cover object-[0_68%] md:hidden"
-          src={dashImage}
-          alt="Sabrina Satti in Santa Cruz"
-          priority
-        />
-        <div className="relative mt-52 h-screen w-screen bg-transparent md:mt-0 md:flex">
-          <div className="scroll-area overflow-scroll bg-transparent pt-4 md:w-1/2">
-            <div className="mx-auto flex w-[90%] max-w-[350px] flex-col items-center rounded bg-black px-7">
-              <div className="mt-4 mb-8 text-center">
-                <Image
-                  width={75}
-                  className="m-auto mb-8"
-                  src={sabrinaLogo}
-                  alt="Sabrina Satti Dog Photography logo"
-                />
-                <h1 className="mb-3">Make a Booking</h1>
-                <p>I typically respond to inquirieswithin 18 hours.</p>
-                <p>
-                  If you&#39;d prefer to chat or ask question entail before
-                  making a booking, you contact me here.
-                </p>
-              </div>
-              <div className="flex w-full items-start justify-center gap-8">
-                <div className="fade-in flex-auto">
-                  <BookingForm />
-                </div>
-              </div>
-            </div>
-          </div>
-          <Image
-            className="fade-in hidden w-1/2 object-cover md:block"
-            src={dashImage}
-            alt="Sabrina Satti in Santa Cruz"
-          />
-        </div>
-      </main>
-    </>
+    <Page
+      title="Book"
+      Header={
+        <>
+          <h1 className="mb-3">Make a Booking</h1>
+          <p>I typically respond to inquiries within 18 hours.</p>
+          <p>
+            If you&#39;d prefer to chat or ask question entail before making a
+            booking, you contact me <Link href="/enquire">here</Link>.
+          </p>
+        </>
+      }
+      Content={<BookingForm />}
+    />
   );
 }
