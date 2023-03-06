@@ -38,12 +38,12 @@ export default function Home() {
         <div className="flex items-start justify-center gap-8">
           <div className="image-container">
             <Image
-              className="parker-image fade-in"
+              className="parker-image"
               src={parkerImage}
               alt="Sabrina Satti in Santa Cruz"
             />
           </div>
-          <div className="fade-in flex-initial">
+          <div className="flex-initial">
             <BookingForm />
           </div>
         </div>

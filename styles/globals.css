@@ -73,9 +73,11 @@
 }
 
 @layer utilities {
-  @keyframes reset{0%{opacity:0.0}50%{opacity:0}100%{opacity:0}}
+  /* @keyframes reset{0%{opacity:0.0}50%{opacity:0}100%{opacity:0}}
   @keyframes fade-in{0%{opacity:0.0}50%{opacity:0}100%{opacity:1.0}}
 
+  // Only once load/presentation animation not working well on Safari
+  // disabling for now.
   .fade-in {
     animation-name: reset, fade-in;
     animation-duration: 1s;
@@ -86,7 +88,7 @@
   .loaded .fade-in {
     opacity: 1;
     animation-name: none;
-  }
+  } */
 }
 
 

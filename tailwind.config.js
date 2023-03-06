@@ -5,6 +5,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      sm: "600px",
+    },
     fontFamily: {
       base: ["Nobel-Book", "sans-serif"],
     },
