@@ -28,6 +28,14 @@
   a {
     @apply text-primary
   }
+  ul {
+    @apply pt-2;
+    list-style-type: circle;
+  }
+  li {
+    @apply pb-1;
+  }
+  
 }
 
 @layer components {
@@ -47,11 +55,11 @@
 
   .input:focus  {
     outline: none;
-    @apply border-red-600;
+    @apply border-primary;
   }
 
   .message {
-    min-height: 120px;
+    min-height: 170px;
   }
 
   .auto-complete-table {
@@ -73,22 +81,15 @@
 }
 
 @layer utilities {
-  /* @keyframes reset{0%{opacity:0.0}50%{opacity:0}100%{opacity:0}}
+  @keyframes reset{0%{opacity:0.0}50%{opacity:0}100%{opacity:0}}
   @keyframes fade-in{0%{opacity:0.0}50%{opacity:0}100%{opacity:1.0}}
 
-  // Only once load/presentation animation not working well on Safari
-  // disabling for now.
   .fade-in {
     animation-name: reset, fade-in;
     animation-duration: 1s;
     animation-timing-function: ease-in;
     animation-iteration-count: 1;
   }
-
-  .loaded .fade-in {
-    opacity: 1;
-    animation-name: none;
-  } */
 }
 
 

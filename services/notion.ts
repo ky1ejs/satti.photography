@@ -1,11 +1,11 @@
 import { Client as NotionClient } from "@notionhq/client";
-import Customer from "../types/Customer";
+import Booking from "../types/Customer";
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
 
 const notion = new NotionClient({ auth: NOTION_API_KEY });
 
-export function addCustomerToNotion(customer: Customer) {
+export function addCustomerToNotion(customer: Booking) {
   return notion.pages.create({
     parent: {
       type: "database_id",

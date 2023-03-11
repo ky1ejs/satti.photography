@@ -1,4 +1,4 @@
-type Customer = {
+type Booking = {
   firstName: string;
   lastName: string;
   email: string;
@@ -11,4 +11,4 @@ type Customer = {
   message: string;
 };
 
-export default Customer;
+export default Booking;

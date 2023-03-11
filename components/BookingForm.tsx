@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import Customer from "../types/Customer";
-import { DogBreedField } from "./BreedField";
+import Booking from "../types/Customer";
+import { Form } from "./Form";
 import { Input } from "./Input";
+import { InputLabel } from "./InputLabel";
+import { SubmitButton } from "./SubmittButton";
 
 const SectionHeading = (props: { children: React.ReactNode }) => (
   <h2 className="mb-2 w-full">{props.children}</h2>
@@ -14,10 +16,10 @@ export function BookingForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Customer>();
+  } = useForm<Booking>();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit: SubmitHandler<Customer> = (data) => {
+  const onSubmit: SubmitHandler<Booking> = (data) => {
     if (isSubmitting) return Promise.resolve();
     setIsSubmitting(true);
 
@@ -25,7 +27,7 @@ export function BookingForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form>
       <SectionHeading>You</SectionHeading>
       <Input
         label="First name"
@@ -54,7 +56,13 @@ export function BookingForm() {
         label="Name(s)"
         inputProps={{ placeholder: "Roger", ...register("dogsName") }}
       />
-      <DogBreedField />
+      <Input
+        label="Breed"
+        inputProps={{
+          placeholder: "I love any and all breeds",
+          ...register("phoneNumber"),
+        }}
+      />
       <Input
         label="Age"
         inputProps={{
@@ -62,31 +70,24 @@ export function BookingForm() {
           ...register("dogsAge"),
         }}
       />
-      <SectionHeading>The shoot</SectionHeading>
-      <Input
-        label="Ideal date(s)"
-        inputProps={{
-          placeholder: "Click to select",
-          ...register("location"),
-        }}
-      />
-      <Input
-        label="Location (ideas)"
-        inputProps={{
-          placeholder: "Central park",
-          ...register("shootDate"),
-        }}
-      />
       <SectionHeading>Anything else...</SectionHeading>
-      <textarea
-        className="input message"
-        placeholder="message"
-        {...register("message")}
-      />
-      {errors.email && <span>This field is required</span>}
-      <button className="mt-8 w-full rounded bg-primary py-2" type="submit">
-        Submit
-      </button>
-    </form>
+      <p>Good things to let me know:</p>
+      <ul>
+        <li>
+          Is there anything I should know about your dog(s)? Their needs? Any
+          quirks?{" "}
+        </li>
+        <li>
+          Do you have any tips on how to make your dog(s) feel comfortable?
+        </li>
+        <li>
+          Do you have any particular requests for the shoot? (e.g. locations,
+          ideal dates)
+        </li>
+      </ul>
+      <InputLabel text="Message" />
+      <textarea className="input message" {...register("message")} />
+      {/* {errors.email && <span>This field is required</span>} */}
+    </Form>
   );
 }

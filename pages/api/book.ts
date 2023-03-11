@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import Customer from "../../types/Customer";
+import Booking from "../../types/Customer";
 import { addCustomerToNotion } from "../../services/notion";
 import { sendEmail } from "../../services/email";
 
@@ -11,7 +11,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<void>
 ) {
-  const customer: Customer = req.body;
+  const customer: Booking = req.body;
   return addCustomerToNotion(customer)
     .then(() =>
       Promise.all([
