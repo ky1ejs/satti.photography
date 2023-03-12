@@ -1,5 +1,7 @@
 import React from "react";
 import { HeroImage } from "./HeroImage";
+import Image from "next/image";
+import sabrinaLogo from "../public/ss-photography.png";
 
 export const Page = ({
   children,
@@ -18,7 +20,15 @@ export const Page = ({
             <div className="mx-auto mb-36 flex w-[90%] max-w-[400px] flex-col items-center rounded bg-black px-7">
               <div className="mt-4 mb-8">
                 <div className="flex w-full items-start justify-center gap-8">
-                  <div className="flex-auto">{children}</div>
+                  <div>
+                    <Image
+                      width={75}
+                      className="m-auto mb-8"
+                      src={sabrinaLogo}
+                      alt="Sabrina Satti Dog Photography logo"
+                    />
+                    <div className="flex-auto">{children}</div>
+                  </div>
                 </div>
               </div>
             </div>
