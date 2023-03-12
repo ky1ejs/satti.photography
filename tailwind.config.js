@@ -18,6 +18,21 @@ module.exports = {
         secondary: "#509AFF",
       },
     },
+    keyframes: {
+      reset: {
+        "0%": { opacity: "0.0" },
+        "50%": { opacity: "0.0" },
+        "100%": { opacity: "0.0" },
+      },
+      "fade-in": {
+        "0%": { opacity: "0.0" },
+        "50%": { opacity: "0.0" },
+        "100%": { opacity: "1.0" },
+      },
+    },
+    animation: {
+      "fade-in": "reset, fade-in 1s ease-in",
+    },
   },
   plugins: [],
 };
