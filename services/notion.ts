@@ -1,5 +1,5 @@
 import { Client as NotionClient } from "@notionhq/client";
-import Booking from "../types/Customer";
+import Booking from "../types/Booking";
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
 

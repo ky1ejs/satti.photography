@@ -33,7 +33,7 @@ export const HeroImage = ({
       <div className="h-full w-full overflow-hidden">
         <Image
           style={{ opacity }}
-          className="h-full animate-fade-in object-cover object-[0_68%]"
+          className="h-full animate-fade-in object-cover object-[50%_68%]"
           src={dashImage}
           alt="Sabrina Satti in Santa Cruz"
           priority

@@ -29,9 +29,18 @@ module.exports = {
         "50%": { opacity: "0.0" },
         "100%": { opacity: "1.0" },
       },
+      spin: {
+        from: {
+          transform: "rotate(0deg)",
+        },
+        to: {
+          transform: "rotate(360deg)",
+        },
+      },
     },
     animation: {
       "fade-in": "reset, fade-in 1s ease-in",
+      spin: "spin 1s linear infinite",
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import Booking from "../../types/Customer";
+import Booking from "../../types/Booking";
 import { addCustomerToNotion } from "../../services/notion";
 import { sendEmail } from "../../services/email";
 

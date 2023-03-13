@@ -2,31 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: "Nobel-Book";
   src: url("https://fonts.cdnfonts.com/s/23338/Nobel Book.woff");
 }
 
 @layer base {
-  body { 
-    @apply bg-black text-white font-base;
+  body {
+    @apply bg-black font-base text-white;
   }
 
   h1 {
-    @apply text-3xl
+    @apply text-3xl;
   }
 
   h2 {
-    @apply font-bold mt-6 first:mt-0 text-xl
+    @apply mt-6 text-xl font-bold first:mt-0;
   }
 
   p {
-    @apply mb-3
+    @apply mb-3;
   }
 
   a {
-    @apply text-primary
+    @apply text-primary;
   }
   ul {
     @apply pt-2;
@@ -35,7 +34,6 @@
   li {
     @apply pb-1;
   }
-  
 }
 
 @layer components {
@@ -46,14 +44,14 @@
   }
 
   .input {
-    @apply mb-3 w-full rounded p-2 bg-transparent border-stone-500 border text-white h-10;
+    @apply h-10 w-full rounded border border-stone-500 bg-transparent p-2 text-white;
   }
-  
-  .input::placeholder  {
+
+  .input::placeholder {
     @apply text-stone-500;
   }
 
-  .input:focus  {
+  .input:focus {
     outline: none;
     @apply border-primary;
   }
@@ -63,7 +61,7 @@
   }
 
   .auto-complete-table {
-    @apply absolute bg-gray-600 shadow-lg w-full top-10;
+    @apply absolute top-10 w-full bg-gray-600 shadow-lg;
     max-height: 400px;
     overflow: hidden;
   }
@@ -75,7 +73,7 @@
 
   /* Hide scrollbar for IE, Edge and Firefox */
   .scroll-area {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, KeyboardEvent } from "react";
 import useSWR from "swr";
 import fuzzysort from "fuzzysort";
-import { Input } from "./Input";
+import { Input } from "./form/inputs/Input";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 

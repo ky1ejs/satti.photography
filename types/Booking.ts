@@ -1,14 +1,12 @@
-type Booking = {
+import { ContactDetails } from "./ContactDetails";
+
+interface Booking extends ContactDetails {
   firstName: string;
   lastName: string;
-  email: string;
-  phoneNumber: string;
   dogsName: string;
   dogsBreed: string;
   dogsAge: string;
-  location: string;
-  shootDate: string;
   message: string;
-};
+}
 
 export default Booking;
