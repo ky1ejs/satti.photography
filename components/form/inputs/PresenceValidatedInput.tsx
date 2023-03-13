@@ -25,7 +25,7 @@ export const PresenceValidatedInput = <T extends FieldValues>({
         required: { value: true, message: presenceErrorMessage },
       }),
     }}
-    errorMessage={errors.firstName?.message as string}
+    errorMessage={errors[name]?.message as string}
     disabled={isSubmitting}
   />
 );
