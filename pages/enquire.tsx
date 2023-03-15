@@ -12,7 +12,6 @@ export default function Enquire() {
           If you&#39;re ready to book, please fill out{" "}
           <Link href="/book">this form</Link>.
         </p>
-        <p>I typically respond to inquirieswithin 18 hours.</p>
       </PageHeader>
       <EnquiryForm />
     </>
