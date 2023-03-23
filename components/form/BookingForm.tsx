@@ -12,6 +12,7 @@ import { DogsNameInput } from "./inputs/DogsNameInput";
 import { DogsBreedInput } from "./inputs/DogsBreedInput";
 import { Dialog } from "../Dialog";
 import { FormContext } from "../../contexts/FormContext";
+import { ErrorDialog } from "../ErrorDialog";
 
 const SectionHeading = (props: { children: React.ReactNode }) => (
   <h2 className="mb-2 w-full">{props.children}</h2>
@@ -30,7 +31,12 @@ export function BookingForm() {
 
   useEffect(() => {
     const subscription = watch((value) => {
-      setContactDetails({ email: value.email ?? "" });
+      setContactDetails({
+        firstName: value.firstName ?? "",
+        lastName: value.lastName ?? "",
+        email: value.email ?? "",
+        message: value.message ?? "",
+      });
     });
     return () => subscription.unsubscribe();
   }, [watch, setContactDetails]);
@@ -73,22 +79,10 @@ export function BookingForm() {
         />
         <FormFooter isSubmitting={isSubmitting} />
       </form>
-      <Dialog
-        title="Something went wrong..."
+      <ErrorDialog
         open={errorModalOpen}
-        Footer={
-          <div className="">
-            <button
-              className="mx-auto block rounded bg-gray-500 px-6 py-2"
-              onClick={() => setErrorModalOpen(false)}
-            >
-              Try again
-            </button>
-          </div>
-        }
-      >
-        <div className="text-black">Sadly your request could not be made.</div>
-      </Dialog>
+        onCloseButtonClicked={() => setErrorModalOpen(false)}
+      />
     </>
   );
 }

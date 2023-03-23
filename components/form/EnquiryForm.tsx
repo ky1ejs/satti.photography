@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Contact from "../../types/Contact";
 import { InputLabel } from "../InputLabel";
@@ -8,6 +8,7 @@ import { FirstNameInput } from "./inputs/FirstNameInput";
 import { EmailInput } from "./inputs/EmailInput";
 import { LastNameInput } from "./inputs/LastNameInput";
 import { FormContext } from "../../contexts/FormContext";
+import { ErrorDialog } from "../ErrorDialog";
 
 export function EnquiryForm() {
   const { contactDetails, setContactDetails } = useContext(FormContext);
@@ -26,18 +27,27 @@ export function EnquiryForm() {
     return () => subscription.unsubscribe();
   }, [watch, setContactDetails]);
 
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
   const onSubmit: SubmitHandler<Contact> = (data) => {
-    return axios.post("/api/contact", data);
+    return axios
+      .post("/api/contact", data)
+      .catch(() => setErrorModalOpen(false));
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FirstNameInput form={form} name="firstName" />
-      <LastNameInput form={form} name="lastName" />
-      <EmailInput form={form} name="email" />
-      <InputLabel text="Message*" />
-      <textarea className="input message" {...register("message")} />
-      <SubmitButton />
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FirstNameInput form={form} name="firstName" />
+        <LastNameInput form={form} name="lastName" />
+        <EmailInput form={form} name="email" />
+        <InputLabel text="Message*" />
+        <textarea className="input message" {...register("message")} />
+        <SubmitButton />
+      </form>
+      <ErrorDialog
+        open={errorModalOpen}
+        onCloseButtonClicked={() => setErrorModalOpen(false)}
+      />
+    </>
   );
 }
