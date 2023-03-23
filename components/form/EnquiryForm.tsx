@@ -1,21 +1,31 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Contact from "../../types/Contact";
-import { Input } from "./inputs/Input";
 import { InputLabel } from "../InputLabel";
 import { SubmitButton } from "../SubmittButton";
 import { FirstNameInput } from "./inputs/FirstNameInput";
 import { EmailInput } from "./inputs/EmailInput";
 import { LastNameInput } from "./inputs/LastNameInput";
+import { FormContext } from "../../contexts/FormContext";
 
 export function EnquiryForm() {
-  const form = useForm<Contact>();
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = form;
+  const { contactDetails, setContactDetails } = useContext(FormContext);
+  const form = useForm<Contact>({ defaultValues: { ...contactDetails } });
+  const { register, handleSubmit, watch } = form;
+
+  useEffect(() => {
+    const subscription = watch((value) => {
+      setContactDetails({
+        firstName: value.firstName ?? "",
+        lastName: value.lastName ?? "",
+        email: value.email ?? "",
+        message: value.message ?? "",
+      });
+    });
+    return () => subscription.unsubscribe();
+  }, [watch, setContactDetails]);
+
   const onSubmit: SubmitHandler<Contact> = (data) => {
     return axios.post("/api/contact", data);
   };

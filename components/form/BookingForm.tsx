@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Booking from "../../types/Booking";
 import { EmailInput } from "./inputs/EmailInput";
@@ -11,19 +11,29 @@ import { DogsAgeInput } from "./inputs/DogsAgeInput";
 import { DogsNameInput } from "./inputs/DogsNameInput";
 import { DogsBreedInput } from "./inputs/DogsBreedInput";
 import { Dialog } from "../Dialog";
+import { FormContext } from "../../contexts/FormContext";
 
 const SectionHeading = (props: { children: React.ReactNode }) => (
   <h2 className="mb-2 w-full">{props.children}</h2>
 );
 
 export function BookingForm() {
-  const form = useForm<Booking>();
+  const { contactDetails, setContactDetails } = useContext(FormContext);
+  const form = useForm<Booking>({ defaultValues: { ...contactDetails } });
   const {
     register,
     handleSubmit,
+    watch,
     formState: { isSubmitting },
   } = form;
   const [errorModalOpen, setErrorModalOpen] = useState(false);
+
+  useEffect(() => {
+    const subscription = watch((value) => {
+      setContactDetails({ email: value.email ?? "" });
+    });
+    return () => subscription.unsubscribe();
+  }, [watch, setContactDetails]);
 
   const onSubmit: SubmitHandler<Booking> = (data) => {
     return axios.post("/api/book", data).catch(() => setErrorModalOpen(false));
