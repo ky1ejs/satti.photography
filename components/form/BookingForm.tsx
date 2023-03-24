@@ -10,7 +10,6 @@ import { InputLabel } from "../InputLabel";
 import { DogsAgeInput } from "./inputs/DogsAgeInput";
 import { DogsNameInput } from "./inputs/DogsNameInput";
 import { DogsBreedInput } from "./inputs/DogsBreedInput";
-import { Dialog } from "../Dialog";
 import { FormContext } from "../../contexts/FormContext";
 import { ErrorDialog } from "../ErrorDialog";
 
@@ -42,7 +41,7 @@ export function BookingForm() {
   }, [watch, setContactDetails]);
 
   const onSubmit: SubmitHandler<Booking> = (data) => {
-    return axios.post("/api/book", data).catch(() => setErrorModalOpen(false));
+    return axios.post("/api/book", data).catch(() => setErrorModalOpen(true));
   };
 
   return (

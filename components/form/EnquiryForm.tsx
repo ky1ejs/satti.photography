@@ -31,7 +31,7 @@ export function EnquiryForm() {
   const onSubmit: SubmitHandler<Contact> = (data) => {
     return axios
       .post("/api/contact", data)
-      .catch(() => setErrorModalOpen(false));
+      .catch(() => setErrorModalOpen(true));
   };
 
   return (
