@@ -24,7 +24,7 @@ export default function handler(
           ? sendEmail(
               NEW_CUSTOMER_NOTIFICATION_EMAIL,
               "New customer!",
-              customer.firstName
+              `${customer.firstName} ${customer.lastName}`
             )
           : Promise.resolve(),
       ])

@@ -6,6 +6,7 @@ const NOTION_API_KEY = process.env.NOTION_API_KEY;
 const notion = new NotionClient({ auth: NOTION_API_KEY });
 
 export function addCustomerToNotion(customer: Booking) {
+  console.log(customer.message);
   return notion.pages.create({
     parent: {
       type: "database_id",
@@ -21,24 +22,44 @@ export function addCustomerToNotion(customer: Booking) {
           },
         ],
       },
-      "First Name": {
-        rich_text: [
-          {
-            text: {
-              content: customer.firstName,
-            },
-          },
-        ],
+      "First Name": richText(customer.firstName),
+      "Last Name": richText(customer.lastName),
+      Email: {
+        email: customer.email,
       },
-      "Last Name": {
-        rich_text: [
-          {
-            text: {
-              content: customer.lastName,
-            },
-          },
-        ],
-      },
+      "Dog Name": richText(customer.dogsName),
+      "Dog Breed": richText(customer.dogsBreed),
+      "Dog Age": richText(customer.dogsAge),
     },
+    children: [
+      {
+        object: "block",
+        heading_2: {
+          rich_text: [
+            {
+              text: {
+                content: "Message from customer form",
+              },
+            },
+          ],
+        },
+      },
+      {
+        object: "block",
+        paragraph: richText(customer.message),
+      },
+    ],
   });
+
+  function richText(value: string) {
+    return {
+      rich_text: [
+        {
+          text: {
+            content: value,
+          },
+        },
+      ],
+    };
+  }
 }
