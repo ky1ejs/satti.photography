@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: "600px",
+      sm: "630px",
     },
     fontFamily: {
       base: ["Nobel-Book", "sans-serif"],
@@ -40,6 +40,7 @@ module.exports = {
     },
     animation: {
       "fade-in": "reset, fade-in 1s ease-in",
+      "fade-in-fast": "reset, fade-in 0.5s linear",
       spin: "spin 1s linear infinite",
     },
   },
