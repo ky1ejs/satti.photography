@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import Contact from "../../types/Contact";
 import { InputLabel } from "../InputLabel";
 import { SubmitButton } from "../SubmittButton";
 import { FirstNameInput } from "./inputs/FirstNameInput";
@@ -10,11 +9,19 @@ import { LastNameInput } from "./inputs/LastNameInput";
 import { FormContext } from "../../contexts/FormContext";
 import { ErrorDialog } from "../dialog/ErrorDialog";
 import { SuccessDialog } from "../dialog/SuccessDialog";
+import { ContactDetails } from "../../types/ContactDetails";
 
 export function EnquiryForm() {
   const { contactDetails, setContactDetails } = useContext(FormContext);
-  const form = useForm<Contact>({ defaultValues: { ...contactDetails } });
-  const { register, handleSubmit, watch } = form;
+  const form = useForm<ContactDetails>({
+    defaultValues: { ...contactDetails },
+  });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { isSubmitting },
+  } = form;
 
   useEffect(() => {
     const subscription = watch((value) => {
@@ -30,9 +37,9 @@ export function EnquiryForm() {
 
   const [errorModalOpen, setErrorModalOpen] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
-  const onSubmit: SubmitHandler<Contact> = (data) => {
+  const onSubmit: SubmitHandler<ContactDetails> = (data) => {
     return axios
-      .post("/api/contact", data)
+      .post("/api/enquire", data)
       .then(() => setSuccessModalOpen(true))
       .catch(() => setErrorModalOpen(true));
   };
@@ -45,7 +52,7 @@ export function EnquiryForm() {
         <EmailInput form={form} name="email" />
         <InputLabel text="Message*" />
         <textarea className="input message" {...register("message")} />
-        <SubmitButton />
+        <SubmitButton loading={isSubmitting} />
       </form>
       <ErrorDialog
         open={errorModalOpen}
