@@ -15,7 +15,7 @@ import { SuccessDialog } from "../dialog/SuccessDialog";
 import { ErrorDialog } from "../dialog/ErrorDialog";
 
 const SectionHeading = (props: { children: React.ReactNode }) => (
-  <h2 className="mb-2 w-full">{props.children}</h2>
+  <h2 className="mb-3 w-full">{props.children}</h2>
 );
 
 export function BookingForm() {
@@ -62,7 +62,7 @@ export function BookingForm() {
         <DogsAgeInput form={form} name="dogsAge" />
         <SectionHeading>Anything else...</SectionHeading>
         <p>Good things to let me know:</p>
-        <ul>
+        <ul className="mb-3 text-lg">
           <li>
             Is there anything I should know about your dog(s)? Their needs? Any
             quirks?
