@@ -3,9 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { addCustomerToNotion } from "../../services/notion";
 import { sendEmail } from "../../services/email";
 import { ContactDetails } from "../../types/ContactDetails";
-
-const NEW_CUSTOMER_NOTIFICATION_EMAIL =
-  process.env.NEW_CUSTOMER_NOTIFICATION_EMAIL;
+import { getNotificationEmails } from "../../services/notification-emails";
 
 export default function handler(
   req: NextApiRequest,
@@ -13,22 +11,22 @@ export default function handler(
 ) {
   const customer: ContactDetails = req.body;
 
-  if (!NEW_CUSTOMER_NOTIFICATION_EMAIL) {
+  const notifiyEmails = getNotificationEmails();
+
+  if (!notifiyEmails) {
     res.status(500).send();
     return;
   }
 
-  const emailBody = `
+  const subject = "New enquiry message";
+  const body = `
     From: ${customer.firstName} ${customer.lastName}
 
     Message:
     ${customer.message}
   `;
-  return sendEmail(
-    NEW_CUSTOMER_NOTIFICATION_EMAIL,
-    "New enquiry message",
-    emailBody
-  )
+
+  return Promise.all(notifiyEmails.map((e) => sendEmail(e, subject, body)))
     .then(() =>
       sendEmail(
         customer.email,

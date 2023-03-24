@@ -3,15 +3,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Booking from "../../types/Booking";
 import { addCustomerToNotion } from "../../services/notion";
 import { sendEmail } from "../../services/email";
-
-const NEW_CUSTOMER_NOTIFICATION_EMAIL =
-  process.env.NEW_CUSTOMER_NOTIFICATION_EMAIL;
+import { getNotificationEmails } from "../../services/notification-emails";
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<void>
 ) {
   const customer: Booking = req.body;
+  const notifyEmails = getNotificationEmails();
   return addCustomerToNotion(customer)
     .then(() =>
       Promise.all([
@@ -20,11 +19,15 @@ export default function handler(
           "I'll be in touch soon!",
           "I usually get back to new requests within 18 hours"
         ),
-        NEW_CUSTOMER_NOTIFICATION_EMAIL
-          ? sendEmail(
-              NEW_CUSTOMER_NOTIFICATION_EMAIL,
-              "New customer!",
-              `${customer.firstName} ${customer.lastName}`
+        notifyEmails
+          ? Promise.all(
+              notifyEmails.map((e) =>
+                sendEmail(
+                  e,
+                  "New customer!",
+                  `${customer.firstName} ${customer.lastName}`
+                )
+              )
             )
           : Promise.resolve(),
       ])
