@@ -2,6 +2,7 @@ import axios from "axios";
 
 const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY;
 const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
+const REPLY_TO_EMAIL = process.env.REPLY_TO_EMAIL;
 
 export function sendEmail(
   recipient: string,
@@ -9,6 +10,7 @@ export function sendEmail(
   message: string
 ): Promise<void> {
   if (!MAILGUN_API_KEY) throw Error("Mailgun API key is null");
+  if (!REPLY_TO_EMAIL) throw Error("Missing reply-to email");
 
   return axios
     .post(
@@ -18,6 +20,7 @@ export function sendEmail(
         to: recipient,
         subject: subject,
         text: message,
+        "h:Reply-To": REPLY_TO_EMAIL,
       }).toString(),
       {
         auth: {
