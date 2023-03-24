@@ -11,7 +11,8 @@ import { DogsAgeInput } from "./inputs/DogsAgeInput";
 import { DogsNameInput } from "./inputs/DogsNameInput";
 import { DogsBreedInput } from "./inputs/DogsBreedInput";
 import { FormContext } from "../../contexts/FormContext";
-import { ErrorDialog } from "../ErrorDialog";
+import { SuccessDialog } from "../dialog/SuccessDialog";
+import { ErrorDialog } from "../dialog/ErrorDialog";
 
 const SectionHeading = (props: { children: React.ReactNode }) => (
   <h2 className="mb-2 w-full">{props.children}</h2>
@@ -26,7 +27,6 @@ export function BookingForm() {
     watch,
     formState: { isSubmitting },
   } = form;
-  const [errorModalOpen, setErrorModalOpen] = useState(false);
 
   useEffect(() => {
     const subscription = watch((value) => {
@@ -40,8 +40,13 @@ export function BookingForm() {
     return () => subscription.unsubscribe();
   }, [watch, setContactDetails]);
 
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
   const onSubmit: SubmitHandler<Booking> = (data) => {
-    return axios.post("/api/book", data).catch(() => setErrorModalOpen(true));
+    return axios
+      .post("/api/book", data)
+      .then(() => setSuccessModalOpen(true))
+      .catch(() => setErrorModalOpen(true));
   };
 
   return (
@@ -82,6 +87,7 @@ export function BookingForm() {
         open={errorModalOpen}
         onCloseButtonClicked={() => setErrorModalOpen(false)}
       />
+      <SuccessDialog open={successModalOpen} />
     </>
   );
 }

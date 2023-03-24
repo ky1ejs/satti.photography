@@ -8,7 +8,8 @@ import { FirstNameInput } from "./inputs/FirstNameInput";
 import { EmailInput } from "./inputs/EmailInput";
 import { LastNameInput } from "./inputs/LastNameInput";
 import { FormContext } from "../../contexts/FormContext";
-import { ErrorDialog } from "../ErrorDialog";
+import { ErrorDialog } from "../dialog/ErrorDialog";
+import { SuccessDialog } from "../dialog/SuccessDialog";
 
 export function EnquiryForm() {
   const { contactDetails, setContactDetails } = useContext(FormContext);
@@ -28,9 +29,11 @@ export function EnquiryForm() {
   }, [watch, setContactDetails]);
 
   const [errorModalOpen, setErrorModalOpen] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
   const onSubmit: SubmitHandler<Contact> = (data) => {
     return axios
       .post("/api/contact", data)
+      .then(() => setSuccessModalOpen(true))
       .catch(() => setErrorModalOpen(true));
   };
 
@@ -48,6 +51,7 @@ export function EnquiryForm() {
         open={errorModalOpen}
         onCloseButtonClicked={() => setErrorModalOpen(false)}
       />
+      <SuccessDialog open={successModalOpen} />
     </>
   );
 }
