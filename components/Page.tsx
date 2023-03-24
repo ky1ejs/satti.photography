@@ -35,7 +35,7 @@ export const Page = ({
       const isScrollingDown = winScroll > scrollPosition;
       setFillNav(
         (isScrollingDown && winScroll > 205) ||
-        (!isScrollingDown && winScroll > 230)
+          (!isScrollingDown && winScroll > 230)
       );
       setScrollPosition(winScroll);
     };
@@ -59,8 +59,9 @@ export const Page = ({
           scrollOpacityEnabled
         />
         <div
-          className={`fixed top-0 z-10 w-full sm:hidden ${fillNav ? "bg-black" : ""
-            }`}
+          className={`fixed top-0 z-10 w-full sm:hidden ${
+            fillNav ? "bg-black" : ""
+          }`}
         >
           <PortfolioButton />
           {fillNav && <NavBorder />}
