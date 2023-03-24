@@ -20,7 +20,10 @@ const SectionHeading = (props: { children: React.ReactNode }) => (
 
 export function BookingForm() {
   const { contactDetails, setContactDetails } = useContext(FormContext);
-  const form = useForm<Booking>({ defaultValues: { ...contactDetails } });
+  const form = useForm<Booking>({
+    defaultValues: { ...contactDetails },
+    shouldUseNativeValidation: false,
+  });
   const {
     register,
     handleSubmit,

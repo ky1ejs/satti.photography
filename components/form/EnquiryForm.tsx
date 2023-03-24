@@ -15,6 +15,7 @@ export function EnquiryForm() {
   const { contactDetails, setContactDetails } = useContext(FormContext);
   const form = useForm<ContactDetails>({
     defaultValues: { ...contactDetails },
+    shouldUseNativeValidation: false,
   });
   const {
     register,
