@@ -8,7 +8,7 @@ const PortfolioButton = () => (
     href="http://satti.photography"
     className="mx-3 mt-4 mb-3 inline-block rounded bg-black/[.5] p-2 text-white hover:text-primary"
   >
-    Back to portfolio
+    Back to home
   </a>
 );
 

@@ -6,10 +6,14 @@ import { PageHeader } from "../components/PageHeader";
 export default function Enquire() {
   return (
     <>
-      <PageHeader className="mb-12" pageTitle="Enquire" title="Enquire">
-        <p>Want to question before you book? You&#39;re in the right place.</p>
+      <PageHeader
+        className="mb-12"
+        pageTitle="Contact Me - Satti Photohrapy"
+        title="Contact Me"
+      >
         <p>
-          If you&#39;re ready to book, please fill out{" "}
+          Have any questions for me? You&#39;re in the right place. If you are
+          ready to book a shoot, please fill out{" "}
           <Link href="/book">this form</Link>.
         </p>
       </PageHeader>
