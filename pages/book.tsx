@@ -6,7 +6,10 @@ import { PageHeader } from "../components/PageHeader";
 export default function Book() {
   return (
     <>
-      <PageHeader pageTitle="book-the-shoot" title="Book the Shoot ">
+      <PageHeader
+        pageTitle="Book Shoot - Satti Photography"
+        title="Book the Shoot"
+      >
         <p>
           If you have any questions before booking, please contact me{" "}
           <Link href="/enquire">here</Link>.
