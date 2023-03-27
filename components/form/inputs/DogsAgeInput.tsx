@@ -11,7 +11,7 @@ export const DogsAgeInput = <T extends FieldValues>({
   <PresenceValidatedInput
     form={form}
     name={name}
-    label="Age*"
+    label="Age(s)*"
     placeholder="2 years old"
     presenceErrorMessage="please provide your dog's age"
   />

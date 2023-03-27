@@ -11,7 +11,7 @@ export const DogsBreedInput = <T extends FieldValues>({
   <PresenceValidatedInput
     form={form}
     name={name}
-    label="Breed*"
+    label="Breed(s)*"
     placeholder="I love any and all breeds"
     presenceErrorMessage="please provide your dog's breed"
   />
