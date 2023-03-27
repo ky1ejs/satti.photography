@@ -6,10 +6,10 @@ import { PageHeader } from "../components/PageHeader";
 export default function Book() {
   return (
     <>
-      <PageHeader pageTitle="Booking" title="Make a Booking">
+      <PageHeader pageTitle="book-the-shoot" title="Book the Shoot ">
         <p>
-          If you&#39;d prefer to chat or ask question entail before making a
-          booking, you contact me <Link href="/enquire">here</Link>.
+          If you have any questions before booking, please contact me{" "}
+          <Link href="/enquire">here</Link>.
         </p>
       </PageHeader>
       <BookingForm />
