@@ -80,8 +80,8 @@ export const Page = ({
                 <div className="flex w-full items-start justify-center gap-8">
                   <div>
                     <Image
-                      width={75}
-                      className="sticky top-5 z-20 m-auto mb-8 sm:top-0"
+                      width={100}
+                      className="sticky top-4 z-20 m-auto mb-8 sm:top-0"
                       src={sabrinaLogo}
                       alt="Sabrina Satti Dog Photography logo"
                     />
