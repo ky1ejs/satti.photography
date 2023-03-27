@@ -35,7 +35,7 @@ export const HeroImage = ({
           style={{ opacity }}
           className="h-full animate-fade-in object-cover object-[50%_68%]"
           src={dashImage}
-          alt="Sabrina Satti in Santa Cruz"
+          alt="Sabrina Satti Dog Photgraphy - photo of Dash the Corgi in Central Park, New York"
           priority
         />
       </div>
