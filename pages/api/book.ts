@@ -17,7 +17,7 @@ export default function handler(
         sendEmail(
           customer.email,
           "I'll be in touch soon!",
-          "I usually get back to new requests within 18 hours"
+          "I usually get back to new requests within 24 hours"
         ),
         notifyEmails
           ? Promise.all(
