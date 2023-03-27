@@ -6,14 +6,14 @@ import sabrinaLogo from "../public/ss-photography.png";
 const PortfolioButton = () => (
   <a
     href="http://satti.photography"
-    className="mx-3 mt-4 mb-3 inline-block rounded bg-black/[.5] p-2 text-white hover:text-primary"
+    className="mx-3  mt-4 mb-3 inline-block border-b-2  border-white text-white hover:border-primary hover:text-primary"
   >
     Back to home
   </a>
 );
 
 const NavBorder = () => (
-  <div className="h-[2px]  w-full animate-fade-in-fast bg-gray-dark" />
+  <div className="h-[2px] w-full animate-fade-in-fast bg-gray-dark" />
 );
 
 const SCOLL_DIV_ID = "scroll-div";
