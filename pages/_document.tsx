@@ -10,7 +10,10 @@ export default function Document() {
         <meta property="og:title" content="Satti Dog Photography in NY" />
         <meta property="og:description" content={SITE_DESC} />
         <meta property="og:url" content="https://book.satti.photography/book" />
-        <meta property="og:image" content="/dash.jpg" />
+        <meta
+          property="og:image"
+          content="https://book.satti.photography/dash.jpg"
+        />
         <link rel="shortcut icon" href="/favicon.jpg" />
       </Head>
       <body>
