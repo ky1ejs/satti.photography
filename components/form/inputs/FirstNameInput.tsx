@@ -12,7 +12,7 @@ export const FirstNameInput = <T extends FieldValues>({
     form={form}
     name={name}
     label="First name*"
-    placeholder="Babara"
+    placeholder="Sarah"
     presenceErrorMessage="please provide your first name"
   />
 );

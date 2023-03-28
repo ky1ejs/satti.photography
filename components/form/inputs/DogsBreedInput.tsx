@@ -12,7 +12,7 @@ export const DogsBreedInput = <T extends FieldValues>({
     form={form}
     name={name}
     label="Breed(s)*"
-    placeholder="I love any and all breeds"
+    placeholder="I love any and all breeds and mixes!"
     presenceErrorMessage="please provide your dog's breed"
   />
 );
