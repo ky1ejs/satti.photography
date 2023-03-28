@@ -6,7 +6,7 @@ import sabrinaLogo from "../public/ss-photography.png";
 const PortfolioButton = () => (
   <a
     href="http://satti.photography"
-    className="mx-3  mt-4 mb-3 inline-block border-b-2  border-white text-white hover:border-primary hover:text-primary"
+    className="mx-3  mt-4 mb-3 inline-block border-b-[1px] border-white  text-sm text-white hover:border-primary hover:text-primary"
   >
     Back to home
   </a>
