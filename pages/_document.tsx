@@ -14,14 +14,6 @@ export default function Document() {
           property="og:image"
           content="https://book.satti.photography/dash.jpg"
         />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="default-src 'self' vitals.vercel-insights.com"
-        />
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="default-src 'self' o4504922846789632.ingest.sentry.io"
-        />
         <link rel="shortcut icon" href="/favicon.jpg" />
       </Head>
       <body>

@@ -21,6 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <FormContextProvider>
       <Page>
         <Component {...pageProps} />
+        <button onClick={() => methodDoesNotExist()}>Break the world</button>
       </Page>
     </FormContextProvider>
   );
