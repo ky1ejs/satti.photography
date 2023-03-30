@@ -9,10 +9,10 @@ export const SuccessDialog = ({ open }: { open: boolean }) => (
         <button
           className="mx-auto block rounded bg-gray-500 px-6 py-2"
           onClick={() => {
-            window.location.href = "https://satti.photography";
+            window.location.href = "http://satti.photography";
           }}
         >
-          Done
+          Back to home
         </button>
       </div>
     }
