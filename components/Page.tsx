@@ -6,7 +6,7 @@ import sabrinaLogo from "../public/ss-photography.png";
 const PortfolioButton = () => (
   <a
     href="http://satti.photography"
-    className="mx-3  mt-4 mb-3 inline-block border-b-[1px] border-white  text-sm text-white hover:border-primary hover:text-primary"
+    className="mx-3  mb-3 mt-4 inline-block border-b-[1px] border-white  text-sm text-white hover:border-primary hover:text-primary"
   >
     Back to home
   </a>
@@ -72,8 +72,8 @@ export const Page = ({
             className="scroll-area bg-transparent pt-4 sm:w-1/2 sm:overflow-scroll"
           >
             <div className="mx-auto mb-36 flex w-[90%] max-w-[400px] flex-col items-center rounded bg-black px-7 sm:mt-12">
-              <div className="mt-4 mb-8">
-                <div className="fixed top-0 left-0 hidden w-1/2 bg-black sm:block">
+              <div className="mb-8 mt-4">
+                <div className="fixed left-0 top-0 hidden w-1/2 bg-black sm:block">
                   <PortfolioButton />
                   {fillNavSm && <NavBorder />}
                 </div>
