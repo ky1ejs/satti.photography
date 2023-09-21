@@ -21,6 +21,7 @@ export default function handler(
   const subject = "New enquiry message";
   const body = `
     From: ${customer.firstName} ${customer.lastName}
+    Email: ${customer.email}
 
     Message:
     ${customer.message}
