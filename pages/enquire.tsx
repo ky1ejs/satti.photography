@@ -8,7 +8,7 @@ export default function Enquire() {
     <>
       <PageHeader
         className="mb-12"
-        pageTitle="Contact Me - Satti Photohrapy"
+        pageTitle="Contact Me - Satti Photography"
         title="Contact Me"
       >
         <p>
