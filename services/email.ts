@@ -7,7 +7,8 @@ const REPLY_TO_EMAIL = process.env.REPLY_TO_EMAIL;
 export function sendEmail(
   recipient: string,
   subject: string,
-  message: string
+  message: string,
+  replyTo: string | undefined = undefined
 ): Promise<void> {
   if (!MAILGUN_API_KEY) throw Error("Mailgun API key is null");
   if (!REPLY_TO_EMAIL) throw Error("Missing reply-to email");
@@ -20,7 +21,7 @@ export function sendEmail(
         to: recipient,
         subject: subject,
         text: message,
-        "h:Reply-To": REPLY_TO_EMAIL,
+        "h:Reply-To": replyTo ?? REPLY_TO_EMAIL,
       }).toString(),
       {
         auth: {

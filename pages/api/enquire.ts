@@ -26,7 +26,9 @@ export default function handler(
     ${customer.message}
   `;
 
-  return Promise.all(notifiyEmails.map((e) => sendEmail(e, subject, body)))
+  return Promise.all(
+    notifiyEmails.map((e) => sendEmail(e, subject, body, customer.email))
+  )
     .then(() =>
       sendEmail(
         customer.email,
