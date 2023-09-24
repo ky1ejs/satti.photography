@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { HeroImage } from "./HeroImage";
 import Image from "next/image";
@@ -18,11 +20,7 @@ const NavBorder = () => (
 
 const SCOLL_DIV_ID = "scroll-div";
 
-export const Page = ({
-  children,
-}: {
-  children: JSX.Element | JSX.Element[];
-}) => {
+export const Page = ({ children }: { children: React.ReactNode }) => {
   const [fillNav, setFillNav] = useState(false);
   const [fillNavSm, setFillNavSm] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -35,7 +33,7 @@ export const Page = ({
       const isScrollingDown = winScroll > scrollPosition;
       setFillNav(
         (isScrollingDown && winScroll > 205) ||
-          (!isScrollingDown && winScroll > 230)
+          (!isScrollingDown && winScroll > 230),
       );
       setScrollPosition(winScroll);
     };

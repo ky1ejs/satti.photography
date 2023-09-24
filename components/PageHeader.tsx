@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 
 export const PageHeader = ({
   className,
@@ -9,7 +10,7 @@ export const PageHeader = ({
   className?: string;
   pageTitle: string;
   title: string;
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
 }) => (
   <div className={className}>
     <Head>

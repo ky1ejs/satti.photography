@@ -8,6 +8,7 @@ export const EmailInput = <T extends FieldValues>({
   },
   name,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<T, any>;
   name: Path<T>;
 }) => (

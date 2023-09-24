@@ -1,12 +1,12 @@
 import { Client as NotionClient } from "@notionhq/client";
-import Booking from "../types/Booking";
+import Booking from "@/types/Booking";
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
 
 const notion = new NotionClient({ auth: NOTION_API_KEY });
 
-export function addCustomerToNotion(customer: Booking) {
-  console.log(customer.message);
+export function addBookingToNotion(booking: Booking) {
+  console.log(booking.message);
   return notion.pages.create({
     parent: {
       type: "database_id",
@@ -17,19 +17,19 @@ export function addCustomerToNotion(customer: Booking) {
         title: [
           {
             text: {
-              content: `${customer.firstName} ${customer.lastName}`,
+              content: `${booking.firstName} ${booking.lastName}`,
             },
           },
         ],
       },
-      "First Name": richText(customer.firstName),
-      "Last Name": richText(customer.lastName),
+      "First Name": richText(booking.firstName),
+      "Last Name": richText(booking.lastName),
       Email: {
-        email: customer.email,
+        email: booking.email,
       },
-      "Dog Name": richText(customer.dogsName),
-      "Dog Breed": richText(customer.dogsBreed),
-      "Dog Age": richText(customer.dogsAge),
+      "Dog Name": richText(booking.dogsName),
+      "Dog Breed": richText(booking.dogsBreed),
+      "Dog Age": richText(booking.dogsAge),
     },
     children: [
       {
@@ -46,7 +46,7 @@ export function addCustomerToNotion(customer: Booking) {
       },
       {
         object: "block",
-        paragraph: richText(customer.message),
+        paragraph: richText(booking.message),
       },
     ],
   });

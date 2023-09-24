@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
-import { EnquiryForm } from "../components/form/EnquiryForm";
-import { PageHeader } from "../components/PageHeader";
+import { EnquiryForm } from "@/components/form/EnquiryForm";
+import { PageHeader } from "@/components/PageHeader";
 
-export default function Enquire() {
+export default function Contact() {
   return (
     <>
       <PageHeader

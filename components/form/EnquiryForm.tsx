@@ -1,3 +1,5 @@
+"use client";
+
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -40,7 +42,7 @@ export function EnquiryForm() {
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   const onSubmit: SubmitHandler<ContactDetails> = (data) => {
     return axios
-      .post("/api/enquire", data)
+      .post("/api/contact", data)
       .then(() => setSuccessModalOpen(true))
       .catch(() => setErrorModalOpen(true));
   };

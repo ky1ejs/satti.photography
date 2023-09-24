@@ -1,7 +1,7 @@
 import React from "react";
-import { BookingForm } from "../components/form/BookingForm";
+import { BookingForm } from "../../components/form/BookingForm";
 import Link from "next/link";
-import { PageHeader } from "../components/PageHeader";
+import { PageHeader } from "../../components/PageHeader";
 
 export default function Book() {
   return (
@@ -12,7 +12,7 @@ export default function Book() {
       >
         <p>
           If you have any questions before booking, please contact me{" "}
-          <Link href="/enquire">here</Link>.
+          <Link href="/contact">here</Link>.
         </p>
       </PageHeader>
       <BookingForm />
