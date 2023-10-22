@@ -2,6 +2,13 @@ import Link from "next/link";
 import React from "react";
 import { EnquiryForm } from "@/components/form/EnquiryForm";
 import { PageHeader } from "@/components/PageHeader";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Shoot - Satti Photography",
+  description:
+    "Contact Satti Photography for any questions you may have about booking a shoot for your dog(s)",
+};
 
 export default function Contact() {
   return (
