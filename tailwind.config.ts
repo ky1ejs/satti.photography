@@ -1,14 +1,14 @@
-import type { Config } from 'tailwindcss'
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     screens: {
-      sm: "630px",
+      sm: "650px",
     },
     fontFamily: {
       base: ["Nobel-Book", "sans-serif"],
@@ -18,6 +18,10 @@ module.exports = {
         "gray-dark": "#202020",
         primary: "#8EBEFF",
         secondary: "#509AFF",
+      },
+      fontSize: {
+        sm: "0.7.5rem",
+        base: "0.9rem",
       },
     },
     keyframes: {
@@ -46,5 +50,4 @@ module.exports = {
       spin: "spin 1s linear infinite",
     },
   },
-  plugins: [],
 };

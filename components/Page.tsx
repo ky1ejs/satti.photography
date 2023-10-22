@@ -6,11 +6,8 @@ import Image from "next/image";
 import sabrinaLogo from "../public/ss-photography.png";
 
 const PortfolioButton = () => (
-  <a
-    href="http://satti.photography"
-    className="mx-3  mb-3 mt-4 inline-block border-b-[1px] border-white  text-sm text-white hover:border-primary hover:text-primary"
-  >
-    Back to home
+  <a href="http://satti.photography" className="mx-3 inline-block text-xs">
+    home
   </a>
 );
 
@@ -19,6 +16,13 @@ const NavBorder = () => (
 );
 
 const SCOLL_DIV_ID = "scroll-div";
+
+// This component sets out the height for the components in the nav bar
+const NavContainer = () => (
+  <div className="flex h-[60px] items-center">
+    <PortfolioButton />
+  </div>
+);
 
 export const Page = ({ children }: { children: React.ReactNode }) => {
   const [fillNav, setFillNav] = useState(false);
@@ -53,6 +57,7 @@ export const Page = ({ children }: { children: React.ReactNode }) => {
     <>
       <main>
         <HeroImage
+          // hidden when not small
           className="fixed top-0 h-64 sm:hidden"
           scrollOpacityEnabled
         />
@@ -61,7 +66,7 @@ export const Page = ({ children }: { children: React.ReactNode }) => {
             fillNav ? "bg-black" : ""
           }`}
         >
-          <PortfolioButton />
+          <NavContainer />
           {fillNav && <NavBorder />}
         </div>
         <div className="relative mt-52 h-screen w-screen bg-transparent sm:mt-0 sm:flex">
@@ -69,10 +74,10 @@ export const Page = ({ children }: { children: React.ReactNode }) => {
             id={SCOLL_DIV_ID}
             className="scroll-area bg-transparent pt-4 sm:w-1/2 sm:overflow-scroll"
           >
-            <div className="mx-auto mb-36 flex w-[90%] max-w-[400px] flex-col items-center rounded bg-black px-7 sm:mt-12">
+            <div className="mx-auto mb-36 flex w-[90%] max-w-[540px] flex-col items-center rounded bg-black px-7 sm:mt-12">
               <div className="mb-8 mt-4">
                 <div className="fixed left-0 top-0 hidden w-1/2 bg-black sm:block">
-                  <PortfolioButton />
+                  <NavContainer />
                   {fillNavSm && <NavBorder />}
                 </div>
                 <div className="flex w-full items-start justify-center gap-8">
