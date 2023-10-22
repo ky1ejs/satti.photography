@@ -1,3 +1,5 @@
+"use client";
+
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -65,7 +67,7 @@ export function BookingForm() {
         <DogsAgeInput form={form} name="dogsAge" />
         <SectionHeading>Anything else...</SectionHeading>
         <p>Good things to let me know:</p>
-        <ul className="mb-3 text-lg">
+        <ul className="mb-3">
           <li>
             Is there anything I should know about your dog(s)? Their needs? Any
             quirks?

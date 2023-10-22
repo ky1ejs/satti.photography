@@ -2,14 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Nobel-Book";
-  src: url("https://fonts.cdnfonts.com/s/23338/Nobel Book.woff");
-}
-
 @layer base {
   body {
-    @apply bg-black font-base text-white;
+    @apply bg-black text-base text-white;
   }
 
   h1 {
@@ -17,7 +12,7 @@
   }
 
   h2 {
-    @apply mt-6 text-xl font-bold first:mt-0;
+    @apply mt-8 text-xl;
   }
 
   p {
@@ -25,7 +20,7 @@
   }
 
   a {
-    @apply text-primary;
+    @apply hover:text-primary underline ;
   }
   ul {
     @apply pt-2;

@@ -33,7 +33,10 @@ export const HeroImage = ({
       <div className="h-full w-full overflow-hidden">
         <Image
           style={{ opacity }}
-          className="h-full animate-fade-in object-cover object-[50%_68%]"
+          // The break points below were chosen for the specific image
+          // set at this time in order to 1) keep the dogs head central
+          // and, if possible, 2) his body from being cut off if possible.
+          className="h-full animate-fade-in object-cover object-[50%_68%] min-[520px]:object-[50%_58%] sm:object-[50%_50%]"
           src={dashImage}
           alt="Sabrina Satti Dog Photgraphy - photo of Dash the Corgi in Central Park, New York"
           priority

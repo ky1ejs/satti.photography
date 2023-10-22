@@ -5,6 +5,7 @@ export const LastNameInput = <T extends FieldValues>({
   form,
   name,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<T, any>;
   name: Path<T>;
 }) => (

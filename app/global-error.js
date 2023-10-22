@@ -1,3 +1,7 @@
+"use client";
+
+// 2023-09-24 - I can't remember where I got this page from but I think it was from `npx @sentry/wizard@latest -i nextjs`
+
 /**
  * NOTE: This requires `@sentry/nextjs` version 7.3.0 or higher.
  *

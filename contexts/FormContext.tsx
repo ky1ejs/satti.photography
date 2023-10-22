@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, useState, ReactNode } from "react";
 import { ContactDetails } from "../types/ContactDetails";
 
