@@ -13,7 +13,7 @@
     "@notionhq/client": "^2.2.13",
     "@sentry/nextjs": "^7.77.0",
     "@types/node": "20.9.0",
-    "@types/react": "18.2.36",
+    "@types/react": "18.2.37",
     "@types/react-dom": "18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@vercel/analytics": "^1.1.1",
