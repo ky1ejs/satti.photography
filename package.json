@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",
-    "@sentry/nextjs": "^7.112.2",
-    "@types/node": "20.12.7",
+    "@sentry/nextjs": "^7.113.0",
+    "@types/node": "20.12.8",
     "@types/react": "18.3.1",
     "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -29,7 +29,7 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.51.3",
+    "react-hook-form": "^7.51.4",
     "swr": "^2.2.5",
     "tailwindcss": "3.4.3",
     "typescript": "5.4.5"
