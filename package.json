@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15",
-    "@sentry/nextjs": "^7.114.0",
+    "@sentry/nextjs": "^8.32.0",
     "@types/node": "20.14.11",
     "@types/react": "18.3.8",
     "@types/react-dom": "18.3.0",
